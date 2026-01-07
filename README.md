@@ -1,4 +1,8 @@
-# React + TypeScript + Vite
+# Socialy
+
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+Socialy is a modern social media platform that allows users to share moments, connect with friends, and engage with content.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
