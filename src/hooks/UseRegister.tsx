@@ -17,7 +17,7 @@ const UseRegister = () => {
       try {
         const res = await axios.post(`${BASE_URL}/api/v1/register`,payload,{
           headers:{
-            apiKey: API_KEY,
+            apiKey: API_KEY
           }
         })
         console.log(res)

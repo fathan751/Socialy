@@ -7,7 +7,7 @@ import type { RegisterFormTypes } from "@/types/register"
 import UseRegister from "@/hooks/UseRegister"
 
 
-const Register = () => {
+const RegisterPage = () => {
 
     const {handleRegister,loading} = UseRegister()
 
@@ -138,7 +138,9 @@ const Register = () => {
 
                         <Button
                             disabled={loading || !passwordRequirement.every( r => r.met)}
-                        className="mt-6 py-6 cursor-pointer bg-linear-to-r from-[#2463eb] to-[#8249df] from-10% to-60%">Create Account</Button>
+                        className="mt-6 py-6 cursor-pointer bg-linear-to-r from-[#2463eb] to-[#8249df] from-10% to-60%"
+                        type="submit"
+                        >Create Account</Button>
 
                     </form>
 
@@ -154,4 +156,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterPage
