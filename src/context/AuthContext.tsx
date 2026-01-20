@@ -10,8 +10,14 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
         localStorage.getItem('token') ?? sessionStorage.getItem('token')
     )
 
+    const logout = () => {
+        localStorage.removeItem('token')
+        sessionStorage.removeItem('token')
+        setToken(null)
+    }
+
     return(
-        <AuthContext.Provider value={{token,setToken}}>
+        <AuthContext.Provider value={{token,setToken,logout}}>
             {children}
         </AuthContext.Provider>
     )

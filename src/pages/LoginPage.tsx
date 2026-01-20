@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import type { LoginFormTypes } from "@/types/login"
 import UseLogin from "@/hooks/UseLogin"
+import { Eye,EyeClosed } from "lucide-react"
 
 const LoginPage = () => {
 
@@ -16,6 +17,11 @@ const LoginPage = () => {
   const [rememberMe,setRememberMe] = useState<boolean>(false)
   const handleRememberMe = (e:React.ChangeEvent<HTMLInputElement>) => {
     setRememberMe(e.target.checked)
+  }
+
+  const [showPass,setShowPass] = useState<boolean>(false)
+  const handleShowPass = () => {
+    setShowPass(prev => !prev)
   }
 
   const isFormVaild = form.email && form.password
@@ -61,19 +67,22 @@ const LoginPage = () => {
 
                     <p className="font-medium text-gray-600 opacity-80 font-satoshi mt-2">Enter your credentials to access your account</p>
 
-                    <form onSubmit={onSubmit} className="flex flex-col mt-2" autoComplete="off">
+                    <form onSubmit={onSubmit} className="flex flex-col mt-2">
                         {/* Email */}
                         <div className="flex flex-col gap-2 mt-5">
                             <label htmlFor="email" className="font-medium">Email</label>
-                            <input autoComplete="off" type="email" className="border rounded-xl w-full py-2 px-4" id="email" placeholder="you@example.com" name="email"
+                            <input autoComplete="email" type="email" className="border rounded-xl w-full py-2 px-4" id="email" placeholder="you@example.com" name="email"
                                value={form.email} onChange={handleChange}
                             />
                         </div>
                         <div className="flex flex-col gap-2 mt-5">
                             <label htmlFor="password" className="font-medium">Password</label>
-                            <input autoComplete="new-password" type="password" className="border rounded-xl w-full py-2 px-4" id="password" placeholder="••••••••" name="password" required
+                            <div className="relative">
+                            <input autoComplete="new-password" type={`${showPass?'text':'password'}`} className="border rounded-xl w-full py-2 px-4" id="password" placeholder="••••••••" name="password" required
                                 value={form.password} onChange={handleChange}
                             />
+                            <button onClick={handleShowPass} type="button" className="absolute top-2.5 right-3">{showPass?<EyeClosed size={20}/>:<Eye size={20}/>}</button>
+                            </div>
                         </div>
                         
                         <div className="mt-5 space-x-2">

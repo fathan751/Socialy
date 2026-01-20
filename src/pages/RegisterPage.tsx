@@ -130,7 +130,7 @@ const RegisterPage = () => {
                         <div className="flex flex-col gap-1 mt-3">
                             {passwordRequirement.map((req,index) => (
                                 <div key={index} className="flex gap-2 items-center">
-                                    <Check size={15} className={`${req.met?`bg-green-500 text-white`:`bg-gray-200 text-gray-200`} rounded-full bg-clip-content `}/>
+                                    <Check size={15} className={`${req.met?`bg-green-500 text-white`:`bg-gray-200 text-gray-200`} rounded-full bg-clip-content`}/>
                                     <span className={`text-sm ${req.met?`text-black`:`text-gray-500`} font-medium tracking-wide`}>{req.label}</span>
                                 </div>
                             ))}
