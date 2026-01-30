@@ -4,7 +4,7 @@ import WhereStoriesConnect from "@/components/Landing/WhereStoriesConnect";
 import YourSpaceToConnect from "@/components/Landing/YourSpaceToConnect";
 import Footer from "@/components/Footer";
 
-const Landing = () => {
+const LandingPage = () => {
 
   return (
     <>
@@ -21,4 +21,4 @@ const Landing = () => {
 
 
 
-export default Landing;
+export default LandingPage;

@@ -30,7 +30,7 @@ const UseLogin = () => {
             }
             setToken(token)
             toast.success("Login Succesfully")    
-            navigate('/feeds')
+            navigate('/feed')
         } catch (error:unknown) {
             if(axios.isAxiosError(error)){
                 toast.error(error.response?.data?.message || "Failed To Login")

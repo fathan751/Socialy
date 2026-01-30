@@ -5,6 +5,7 @@ import type { AuthProviderType } from "@/types/Auth";
 const AuthContext = createContext<AuthProviderType|null>(null)
 
 export const AuthProvider = ({children}:{children:ReactNode}) => {
+    
 
     const [token,setToken] = useState<string|null>(
         localStorage.getItem('token') ?? sessionStorage.getItem('token')
@@ -14,6 +15,7 @@ export const AuthProvider = ({children}:{children:ReactNode}) => {
         localStorage.removeItem('token')
         sessionStorage.removeItem('token')
         setToken(null)
+
     }
 
     return(

@@ -1,21 +1,20 @@
-import { Camera,Home,PlusSquare,Compass } from "lucide-react"
 import { Link } from "react-router-dom"
+import { Compass,Home,PlusSquare,Camera } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
 import { useNavigate } from "react-router-dom"
 
+const NavbarProfile = () => {
 
-const NavbarFeeds = () => {
+  const navigate = useNavigate()
 
   const {logout} = useAuth()
-  const navigate = useNavigate()
 
   const handleLogout = () => {
     logout()
     navigate('/login',{replace:true})
   }
-    
-  return (
 
+  return (
     <header className="fixed top-0 w-full h-16 px-10 border-b bg-white shadow">
       <nav className="flex justify-between items-center mx-auto max-w-7xl h-full ">
         <Link to={'/feed'} className="flex gap-3">
@@ -25,9 +24,7 @@ const NavbarFeeds = () => {
           <span className="font-semibold font-poppins bg-clip-text bg-linear-to-r from-[#2862EA] to-[#7F49DF] text-transparent text-2xl">Socialy</span>
         </Link>
 
-        <input type="search" className="rounded-2xl py-2 px-4 w-75 bg-[#F3F4F6] focus:outline-none focus:ring-2 focus:ring-blue-500 " placeholder="Search Users..."/>
-
-        <div className="flex gap-3 justify-end">
+        <div className="flex gap-3">
           <Link to={'/feed'} className="bg-[#F3F4F6] p-2 rounded-xl cursor-pointer">
             <Home className="text-[#2862EA]"/>
           </Link>
@@ -38,23 +35,20 @@ const NavbarFeeds = () => {
             <PlusSquare/>
           </Link>
 
-        <div className="group relative">
-
+          <div className="relative group">
           <Link to={'/profile/:id'} className="p-2 block">
-            <img src="/images/dummy-profile.png" alt="profile" className="size-6 cursor-pointer" />
+              <img src="/images/dummy-profile.png" alt="profile" className="size-6 cursor-pointer" />
           </Link>
 
-          <div className={`absolute top-full right-0 mt-2 shadow w-fit flex flex-col origin-top-right  ease-out transition-all opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100 bg-white border`}>
-            <Link to={'/profile/:id'} className="px-3 py-1 cursor-pointer hover:bg-blue-200 text-right">Profile</Link>
-            <button onClick={handleLogout} className="font-medium py-1 cursor-pointer px-3 hover:bg-blue-200 text-right">Logout</button>
+          <div className="absolute right-0 top-full mt-3 bg-white border shadow flex flex-col scale-0 origin-top-right opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100 size-fit ">
+            <Link to={'/profile/:id'} className="text-right px-2 hover:bg-blue-200 py-1">Profile</Link>
+            <button onClick={handleLogout} className="text-right px-3 hover:bg-blue-200 py-1 font-semibold cursor-pointer">Logout</button>
           </div>
-
-        </div>
-          
+          </div>
         </div>
       </nav>
     </header>
   )
 }
 
-export default NavbarFeeds
+export default NavbarProfile
