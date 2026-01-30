@@ -7,7 +7,7 @@ import type { RegisterFormTypes } from "@/types/register"
 import UseRegister from "@/hooks/UseRegister"
 
 
-const Register = () => {
+const RegisterPage = () => {
 
     const {handleRegister,loading} = UseRegister()
 
@@ -130,7 +130,7 @@ const Register = () => {
                         <div className="flex flex-col gap-1 mt-3">
                             {passwordRequirement.map((req,index) => (
                                 <div key={index} className="flex gap-2 items-center">
-                                    <Check size={15} className={`${req.met?`bg-green-500 text-white`:`bg-gray-200 text-gray-200`} rounded-full bg-clip-content `}/>
+                                    <Check size={15} className={`${req.met?`bg-green-500 text-white`:`bg-gray-200 text-gray-200`} rounded-full bg-clip-content`}/>
                                     <span className={`text-sm ${req.met?`text-black`:`text-gray-500`} font-medium tracking-wide`}>{req.label}</span>
                                 </div>
                             ))}
@@ -138,7 +138,9 @@ const Register = () => {
 
                         <Button
                             disabled={loading || !passwordRequirement.every( r => r.met)}
-                        className="mt-6 py-6 cursor-pointer bg-linear-to-r from-[#2463eb] to-[#8249df] from-10% to-60%">Create Account</Button>
+                        className="mt-6 py-6 cursor-pointer bg-linear-to-r from-[#2463eb] to-[#8249df] from-10% to-60%"
+                        type="submit"
+                        >Create Account</Button>
 
                     </form>
 
@@ -154,4 +156,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterPage
